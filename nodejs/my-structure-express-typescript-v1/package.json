@@ -2,9 +2,9 @@
   "name": "my-structure-express-typescript-v1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {
-    "start": "npm run build && node build/index.js",
+    "start": "npm run build && node build/app.js",
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,7 @@
     "express-session": "^1.17.3",
     "helmet": "^5.1.0",
     "lodash": "^4.17.21",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "winston": "^3.8.0"
   }
 }
