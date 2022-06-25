@@ -1,6 +1,5 @@
 import express, { Application } from "express";
 import http, { Server } from "http";
-import dotenv from "dotenv";
 import session from "express-session";
 import helmet from "helmet";
 import morgan from "morgan";
@@ -8,9 +7,6 @@ import path from "path";
 import cors from "cors";
 
 import appConfig from "./config";
-import { splitCommaToArray } from "./loaders";
-
-dotenv.config({ path: path.resolve(__dirname, "../development.env") });
 
 export const app: Application = express();
 const server: Server = http.createServer(app);
@@ -32,15 +28,15 @@ async function bootstrap() {
         secure: appConfig.cookie.secure,
         maxAge: appConfig.cookie.maxAge,
       },
-    })
+    }),
   );
 
   app.use(
     cors({
-      origin: splitCommaToArray(appConfig.cors.origins),
+      origin: appConfig.cors.origins,
+      methods: appConfig.cors.methods,
       credentials: true,
-      methods: splitCommaToArray(appConfig.cors.methods),
-    })
+    }),
   );
 
   app.use(express.json());

@@ -1,3 +1,3 @@
-export * from "./splitCommaToArray";
+export * from './splitCommaToArray';
 
 // export { splitCommaToArray };
